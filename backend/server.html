@@ -1,0 +1,16 @@
+<% 
+function getUsers() {
+    var users = XQuery('for $user in collaborators return $user')
+    return users
+}
+
+var body tools.read_object(Request.Body, 'json')
+var response = {}
+
+
+response = getUsers()
+
+response = tools.object_to_text(response, 'json')
+
+Response.Write(response)
+%>
