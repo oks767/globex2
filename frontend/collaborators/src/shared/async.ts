@@ -10,9 +10,7 @@ interface User {
 const usersAll = createAsyncThunk<User[], void, { rejectValue: string }>('users/fetchUsersAll', 
     async (_, thunkAPI) => {
       try {
-        const response = await axios.get<User[]>('../../../collaborators/backend/server.html')
-        console.log(response.data);
-          
+        const response = await axios.get<User[]>('../../../collaborators/backend/server.html');  
         return response.data;
       } catch (error) {
         return thunkAPI.rejectWithValue((error as any).message);

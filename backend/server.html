@@ -1,6 +1,6 @@
 <% 
 function getUsers() {
-    var users = XQuery('sql: SELECT * FROM collaborators')
+    var users = XQuery('for $user in collaborators return $user')
     return users
 }
 
